@@ -1,6 +1,11 @@
-from menu_principal import*
-from inscribir import *
-import menu_camper
+import os
+import modules.corefiles as core
+from modules.menu_principal import*
+from modules.inscribir import *
+import modules.menu_camper as menu_camper
+
+
+
 
 while True:
     print(menu)
