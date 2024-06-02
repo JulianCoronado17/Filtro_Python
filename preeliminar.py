@@ -14,9 +14,9 @@ def inscribir():
          'Acudiente': acudiente,'Celular': celular,
          'Fijo':fijo,'Estado':"","Riesgo":riesgo}}
     
-    camper=json.dumps(dic,indent=3)
+    camper=json.dumps(dic)
 
-    file=open("campers.json","a")
+    file=open("campers.txt","a")
 
     file.write(camper)
     file.close
