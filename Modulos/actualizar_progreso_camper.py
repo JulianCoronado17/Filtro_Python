@@ -37,6 +37,20 @@ def registrar_nota_camper(ruta_archivo):
 
             if promedio >= 60:
                 campus['campers'][camper_id]['estado'] = "Aprobado"
+                
+                # Asignar ruta a camper aprobado
+                asignado = False
+                for area, info in campus['areas'].items():
+                    if 'campers' not in info:
+                        info['campers'] = []
+                    if len(info['campers']) < info['capacidad']:
+                        info['campers'].append(camper_id)
+                        campus['campers'][camper_id]['area'] = area
+                        asignado = True
+                        break
+                
+                if not asignado:
+                    print("No hay capacidad disponible en ninguna área. El camper no ha sido asignado a ninguna ruta.")
             else:
                 campus['campers'][camper_id]['estado'] = "Reprobado"
 

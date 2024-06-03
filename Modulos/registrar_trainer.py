@@ -6,6 +6,7 @@ def registrar_nuevo_trainer(ruta_archivo):
     trainer_id = input("Ingrese el ID del nuevo trainer: ")
     nuevo_trainer['nombre'] = input("Ingrese el nombre del trainer: ")
     nuevo_trainer['especialidad'] = input("Ingrese la especialidad del trainer: ")
+    nuevo_trainer['horario'] = input("Ingrese el horario del trainer (ej. 9-13, 14-18): ").split(", ")
     nuevo_trainer['area'] = input("Ingrese el área asignada del trainer: ")
 
     if os.path.exists(ruta_archivo):

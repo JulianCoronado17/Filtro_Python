@@ -15,48 +15,124 @@ from Modulos.registrar_trainer import*
 from Modulos.asignar_area_trainer import*
 from Modulos.todos_los_trainers import*
 from Modulos.act_riesgo_camper import*
+from Modulos.matriculas import*
+import Modulos.rutas as rutas
 
 import os
 
 campus = {
-    'campers':{},   
+    'campers':{},
     'rutas':{
         'nodejs':{
-            'fundamentos':{},
-            'web':{},
-            'progformal':{},
-            'baseDatos':{},
-            'backend':{},
+            'fundamentos':{
+                'introduccion_algoritmia':{},
+                'pseint':{},
+                'python':{}
             },
+            'web':{
+                'html':{},
+                'css':{},
+                'bootstrap':{}
+            },
+            'progformal':{
+                'java':{},
+                'javascript':{},
+                'csharp':{}
+            },
+            'baseDatos':{
+                'principal': 'Mysql',
+                'alternativo': 'MongoDb',
+                'mysql':{},
+                'mongodb':{},
+                'postgresql':{}
+            },
+            'backend':{
+                'netcore':{},
+                'spring_boot':{},
+                'nodejs':{},
+                'express':{}
+            },
+        },
         'java':{
-            'fundamentos':{},
-            'web':{},
-            'progformal':{},
-            'baseDatos':{},
-            'backend':{},},
+            'fundamentos':{
+                'introduccion_algoritmia':{},
+                'pseint':{},
+                'python':{}
+            },
+            'web':{
+                'html':{},
+                'css':{},
+                'bootstrap':{}
+            },
+            'progformal':{
+                'java':{},
+                'javascript':{},
+                'csharp':{}
+            },
+            'baseDatos':{
+                'principal': 'Postgresql',
+                'alternativo': 'Mysql',
+                'mysql':{},
+                'mongodb':{},
+                'postgresql':{}
+            },
+            'backend':{
+                'netcore':{},
+                'spring_boot':{},
+                'nodejs':{},
+                'express':{}
+            },
+        },
         'netcore':{
-            'fundamentos':{},
-            'web':{},
-            'progformal':{},
-            'baseDatos':{},
-            'backend':{},},
-        },   
+            'fundamentos':{
+                'introduccion_algoritmia':{},
+                'pseint':{},
+                'python':{}
+            },
+            'web':{
+                'html':{},
+                'css':{},
+                'bootstrap':{}
+            },
+            'progformal':{
+                'java':{},
+                'javascript':{},
+                'csharp':{}
+            },
+            'baseDatos':{
+                'principal': 'MongoDb',
+                'alternativo': 'Mysql',
+                'mysql':{},
+                'mongodb':{},
+                'postgresql':{}
+            },
+            'backend':{
+                'netcore':{},
+                'spring_boot':{},
+                'nodejs':{},
+                'express':{}
+            },
+        }
+    },
     'areas':{
         'apolo':{
             'nombre':'Apolo',
-            'capacidad':33
+            'capacidad':33,
+            'campers':[]
         },
         'artemis':{
             'nombre':'Artemis',
-            'capacidad':35
+            'capacidad':35,
+            'campers':[]
         },
         'sputnik':{
             'nombre':'Sputnik',
-            'capacidad':33
+            'capacidad':33,
+            'campers':[]
         }
-     },   
-    'trainers':{},   
-    'matricula':{},     
+    },
+    'trainers':{},
+    'matricula':{},
 }
 
 
@@ -91,11 +167,28 @@ menu_coordinador = """
 5. Ver todas las rutas disponibles
 6. Eliminar camper
 7. Registrar nota de camper
-8.Inscribir camper
+8. Inscribir camper
+9. Crear nueva ruta
+10. Registrar matricula
+11. Ver matriculas
 """
 
 ruta_carpeta = 'Data'
 ruta_archivo = os.path.join(ruta_carpeta, 'campus.json')
+
+if not os.path.exists(ruta_archivo):
+    campus = {
+        'campers': {},
+        'trainers': {},
+        'areas': {
+            'nodejs': {'capacidad': 33, 'campers': []},
+            'java': {'capacidad': 33, 'campers': []},
+            'netcore': {'capacidad': 33, 'campers': []}
+        },
+        'rutas': ['nodejs', 'java', 'netcore']
+    }
+    with open(ruta_archivo, 'w') as archivo_json:
+        json.dump(campus, archivo_json, indent=4)
 
 while True:
     print("""\033[36mBIENVENIDO A CAMPUSLANDS\033[0m""")
@@ -120,7 +213,7 @@ while True:
         
         elif opc_camper == "2":
             # Implementar función para ver información del camper
-            ver_informacion_camper(ruta_archivo)
+            rutas.crear_nueva_ruta(ruta_nombre, ruta_archivo)
         elif opc_camper == "3":
             # Implementar función para actualizar información del camper
             actualizar_informacion_camper(ruta_archivo)
@@ -177,13 +270,19 @@ while True:
             registrar_nota_camper(ruta_archivo)
         elif opc_coordinador == "8":
             inscribir_camper(ruta_archivo)
+        elif opc_coordinador == "9":
+            ruta_nombre = input("Ingrese el nombre de la nueva ruta de entrenamiento: ")
+            rutas.crear_nueva_ruta(ruta_nombre, ruta_archivo)  # Pasa la ruta del archivo aquí
+        elif opc_coordinador=="10":
+            registrar_matricula(ruta_archivo)
+        elif opc == "11":
+            ver_matriculas(ruta_archivo)
         else:
             print("Escoja una opción existente")
-    
-         
     elif opc=="0":
         print("Salio")
         break                         
     else:
         print("Escoja un rol existente")
 
+#Arreglar agregar matricula, deje la linea pa chat gpt ya escrita, limite reestablecido para las 6:47 am

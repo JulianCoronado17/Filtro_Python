@@ -1,6 +1,7 @@
 import os
 import json
 
+
 def ver_rutas_disponibles(ruta_archivo):
     if os.path.exists(ruta_archivo):
         with open(ruta_archivo, 'r') as archivo_json:
@@ -23,3 +24,61 @@ def ver_todas_las_rutas(ruta_archivo):
             print(f"Ruta: {ruta}")
     else:
         print("Archivo campus.json no encontrado.")
+        
+import json
+import os
+
+import json
+import os
+
+def crear_nueva_ruta(ruta_nombre, ruta_archivo):
+    if os.path.exists(ruta_archivo):
+        with open(ruta_archivo, 'r') as archivo_json:
+            campus = json.load(archivo_json)
+    else:
+        print("Archivo campus.json no encontrado.")
+        return
+
+    if ruta_nombre in campus['rutas']:
+        print("La ruta ya existe.")
+        return
+
+    campus['rutas'][ruta_nombre] = {
+        'fundamentos': {
+            'introduccion_algoritmia': {},
+            'pseint': {},
+            'python': {}
+        },
+        'web': {
+            'html': {},
+            'css': {},
+            'bootstrap': {}
+        },
+        'progformal': {
+            'java': {},
+            'javascript': {},
+            'csharp': {}
+        },
+        'baseDatos': {
+            'principal': 'Mysql',
+            'alternativo': 'MongoDb',
+            'mysql': {},
+            'mongodb': {},
+            'postgresql': {}
+        },
+        'backend': {
+            'netcore': {},
+            'spring_boot': {},
+            'nodejs': {},
+            'express': {}
+        },
+    }
+
+    with open(ruta_archivo, 'w') as archivo_json:
+        json.dump(campus, archivo_json, indent=4)
+
+    print(f"Ruta {ruta_nombre} creada con éxito.")
+
+
+
+  

@@ -1,0 +1,162 @@
+{
+    "campers": {
+        "1057410559": {
+            "id": "1057410559",
+            "nombre": "Julian",
+            "apellido": "Pi\u00f1eros",
+            "direccion": "Carrera19A",
+            "acudiente": "Madre",
+            "celular": "3227095140",
+            "fijo": "0413",
+            "estado": "Aprobado",
+            "riesgo": "False"
+        }
+    },
+    "rutas": {
+        "nodejs": {
+            "fundamentos": {
+                "introduccion_algoritmia": {},
+                "pseint": {},
+                "python": {}
+            },
+            "web": {
+                "html": {},
+                "css": {},
+                "bootstrap": {}
+            },
+            "progformal": {
+                "java": {},
+                "javascript": {},
+                "csharp": {}
+            },
+            "baseDatos": {
+                "principal": "Mysql",
+                "alternativo": "MongoDb",
+                "mysql": {},
+                "mongodb": {},
+                "postgresql": {}
+            },
+            "backend": {
+                "netcore": {},
+                "spring_boot": {},
+                "nodejs": {},
+                "express": {}
+            }
+        },
+        "java": {
+            "fundamentos": {
+                "introduccion_algoritmia": {},
+                "pseint": {},
+                "python": {}
+            },
+            "web": {
+                "html": {},
+                "css": {},
+                "bootstrap": {}
+            },
+            "progformal": {
+                "java": {},
+                "javascript": {},
+                "csharp": {}
+            },
+            "baseDatos": {
+                "principal": "Postgresql",
+                "alternativo": "Mysql",
+                "mysql": {},
+                "mongodb": {},
+                "postgresql": {}
+            },
+            "backend": {
+                "netcore": {},
+                "spring_boot": {},
+                "nodejs": {},
+                "express": {}
+            }
+        },
+        "netcore": {
+            "fundamentos": {
+                "introduccion_algoritmia": {},
+                "pseint": {},
+                "python": {}
+            },
+            "web": {
+                "html": {},
+                "css": {},
+                "bootstrap": {}
+            },
+            "progformal": {
+                "java": {},
+                "javascript": {},
+                "csharp": {}
+            },
+            "baseDatos": {
+                "principal": "MongoDb",
+                "alternativo": "Mysql",
+                "mysql": {},
+                "mongodb": {},
+                "postgresql": {}
+            },
+            "backend": {
+                "netcore": {},
+                "spring_boot": {},
+                "nodejs": {},
+                "express": {}
+            }
+        },
+        "Maincra": {
+            "fundamentos": {
+                "introduccion_algoritmia": {},
+                "pseint": {},
+                "python": {}
+            },
+            "web": {
+                "html": {},
+                "css": {},
+                "bootstrap": {}
+            },
+            "progformal": {
+                "java": {},
+                "javascript": {},
+                "csharp": {}
+            },
+            "baseDatos": {
+                "principal": "Mysql",
+                "alternativo": "MongoDb",
+                "mysql": {},
+                "mongodb": {},
+                "postgresql": {}
+            },
+            "backend": {
+                "netcore": {},
+                "spring_boot": {},
+                "nodejs": {},
+                "express": {}
+            }
+        }
+    },
+    "areas": {
+        "apolo": {
+            "nombre": "Apolo",
+            "capacidad": 33
+        },
+        "artemis": {
+            "nombre": "Artemis",
+            "capacidad": 35
+        },
+        "sputnik": {
+            "nombre": "Sputnik",
+            "capacidad": 33
+        }
+    },
+    "trainers": {
+        "15": {
+            "nombre": "Juan Mari\u00f1o",
+            "especialidad": "Socializar",
+            "horario": [
+                "10-00,13-30"
+            ],
+            "area": "Sputnik"
+        }
+    },
+    "matricula": {}
+}
