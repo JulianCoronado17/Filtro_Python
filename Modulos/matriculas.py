@@ -3,6 +3,12 @@ import os
 from datetime import datetime
 
 def registrar_matricula(ruta_archivo):
+    camper_id = input("Ingrese el ID del camper: ")
+    trainer_id = input("Ingrese el ID del trainer: ")
+    ruta_entrenamiento = input("Ingrese la ruta de entrenamiento: ")
+    fecha_inicio = input("Ingrese la fecha de inicio (YYYY-MM-DD): ")
+    fecha_fin = input("Ingrese la fecha de finalización (YYYY-MM-DD): ")
+
     if not os.path.exists(ruta_archivo):
         print("Archivo campus.json no encontrado.")
         return
@@ -10,33 +16,19 @@ def registrar_matricula(ruta_archivo):
     with open(ruta_archivo, 'r') as archivo_json:
         campus = json.load(archivo_json)
 
-    camper_id = input("Ingrese el ID del camper aprobado: ")
-    if camper_id not in campus['campers'] or campus['campers'][camper_id]['estado'] != 'Aprobado':
-        print("Camper no encontrado o no aprobado.")
+    # Verificar que el camper está aprobado
+    if camper_id not in campus['campers']:
+        print("ID de camper no encontrado.")
+        return
+    if campus['campers'][camper_id]['estado'] != 'Aprobado':
+        print("El camper no está aprobado.")
         return
 
-    trainer_id = input("Ingrese el ID del trainer encargado: ")
-    if trainer_id not in campus['trainers']:
-        print("Trainer no encontrado.")
-        return
-
-    ruta_nombre = input("Ingrese la ruta de entrenamiento asignada: ")
-    if ruta_nombre not in campus['rutas']:
-        print("Ruta no encontrada.")
-        return
-
-    fecha_inicio = input("Ingrese la fecha de inicio (YYYY-MM-DD): ")
-    fecha_finalizacion = input("Ingrese la fecha de finalización (YYYY-MM-DD): ")
-
-    try:
-        datetime.strptime(fecha_inicio, "%Y-%m-%d")
-        datetime.strptime(fecha_finalizacion, "%Y-%m-%d")
-    except ValueError:
-        print("Formato de fecha inválido.")
-        return
-
+    # Asignar área de entrenamiento
     area_asignada = None
     for area, detalles in campus['areas'].items():
+        if 'campers' not in detalles:
+            detalles['campers'] = []
         if len(detalles['campers']) < detalles['capacidad']:
             area_asignada = area
             break
@@ -45,22 +37,25 @@ def registrar_matricula(ruta_archivo):
         print("No hay áreas disponibles con capacidad suficiente.")
         return
 
-    matricula_id = f"mat_{len(campus['matricula']) + 1}"
+    # Asignar la matrícula
+    matricula_id = f"{camper_id}_{ruta_entrenamiento}_{datetime.now().strftime('%Y%m%d%H%M%S')}"
     campus['matricula'][matricula_id] = {
         'camper_id': camper_id,
         'trainer_id': trainer_id,
-        'ruta': ruta_nombre,
+        'ruta_entrenamiento': ruta_entrenamiento,
         'fecha_inicio': fecha_inicio,
-        'fecha_finalizacion': fecha_finalizacion,
-        'area': area_asignada
+        'fecha_fin': fecha_fin,
+        'area_asignada': area_asignada
     }
-
     campus['areas'][area_asignada]['campers'].append(camper_id)
 
     with open(ruta_archivo, 'w') as archivo_json:
         json.dump(campus, archivo_json, indent=4)
 
-    print("Matrícula registrada con éxito.")
+    print(f"Matrícula registrada con éxito. ID de matrícula: {matricula_id}")
+
+# Ahora puedes llamar a la función `registrar_matricula` desde tu menú principal.
+
 
 
 
@@ -69,13 +64,14 @@ def ver_matriculas(ruta_archivo):
         with open(ruta_archivo, 'r') as archivo_json:
             campus = json.load(archivo_json)
 
-        if 'matriculas' in campus:
-            print("Matriculas registradas:")
-            for camper_id, matricula in campus['matriculas'].items():
-                print(f"\nCamper ID: {camper_id}")
+        if 'matricula' in campus and campus['matricula']:
+            print("Matrículas registradas:")
+            for matricula_id, matricula in campus['matricula'].items():
+                print(f"\nMatrícula ID: {matricula_id}")
                 for key, value in matricula.items():
                     print(f"{key}: {value}")
         else:
             print("No hay matrículas registradas.")
     else:
         print("Archivo campus.json no encontrado.")
+

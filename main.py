@@ -16,6 +16,7 @@ from Modulos.asignar_area_trainer import*
 from Modulos.todos_los_trainers import*
 from Modulos.act_riesgo_camper import*
 from Modulos.matriculas import*
+from Modulos.reportes import*
 import Modulos.rutas as rutas
 
 import os
@@ -137,13 +138,13 @@ campus = {
 
 
 menu_principal="""
-1.Camper
-2.Trainer
-3.Coordinador
-0.Salir
+1. Camper
+2. Trainer
+3. Coordinador
+0. Salir
 """
 menu_camper="""
-1.Incribirse
+1. Incribirse
 2. Ver Información del Camper
 3. Actualizar Información del Camper
 4. Ver Estado del Proceso
@@ -151,12 +152,12 @@ menu_camper="""
 6. Darse de Baja
 """
 menu_trainer="""
-1.Agregar una nueva ruta de entrenamiento
-2.Asignar campers a una ruta específica
-3.Ver la información detallada de un camper
-4.Actualizar el progreso de un camper en su ruta
-5.Ver el estado del proceso de un camper
-6.Ver información detallada de todos los trainers
+1. Agregar una nueva ruta de entrenamiento
+2. Asignar campers a una ruta específica
+3. Ver la información detallada de un camper
+4. Actualizar el progreso de un camper en su ruta
+5. Ver el estado del proceso de un camper
+6. Ver información detallada de todos los trainers
 """
 
 menu_coordinador = """
@@ -171,6 +172,17 @@ menu_coordinador = """
 9. Crear nueva ruta
 10. Registrar matricula
 11. Ver matriculas
+12. Registrar notas por módulo y evaluar rendimiento
+13. Consultar campers en riesgo alto
+14. Reportes
+"""
+menu_reportes = """
+1. Listar campers inscritos
+2. Listar campers aprobados
+3. Listar trainers
+4. Listar campers con bajo rendimiento
+5. Listar campers y trainers por ruta
+6. Reporte de módulos por ruta y trainer
 """
 
 ruta_carpeta = 'Data'
@@ -275,10 +287,33 @@ while True:
             rutas.crear_nueva_ruta(ruta_nombre, ruta_archivo)  # Pasa la ruta del archivo aquí
         elif opc_coordinador=="10":
             registrar_matricula(ruta_archivo)
-        elif opc == "11":
+        elif opc_coordinador == "11":
             ver_matriculas(ruta_archivo)
-        else:
-            print("Escoja una opción existente")
+        elif opc_coordinador == "12":
+            registrar_notas_modulo(ruta_archivo)
+        elif opc_coordinador =="13":
+            consultar_riesgo_alto(ruta_archivo)
+            
+            
+        elif opc_coordinador == "14":
+            
+            print(menu_reportes)
+            opc_reporte=input("Escoja que desea hacer: ")
+            if opc_reporte == "1":
+                listar_campers_inscritos(ruta_archivo)
+            elif opc_reporte == "2":
+                listar_campers_aprobados(ruta_archivo)
+            elif opc_reporte == "3":
+                listar_trainers(ruta_archivo)
+            elif opc_reporte == "4":
+                listar_campers_bajo_rendimiento(ruta_archivo)
+            elif opc_reporte == "5":
+                listar_campers_trainers_por_ruta(ruta_archivo)
+            elif opc_reporte == "6":
+                reporte_modulos(ruta_archivo)
+            else:
+                print("Escoja una opción existente")
+                
     elif opc=="0":
         print("Salio")
         break                         

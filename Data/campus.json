@@ -9,7 +9,14 @@
             "celular": "3227095140",
             "fijo": "0413",
             "estado": "Aprobado",
-            "riesgo": "False"
+            "riesgo": "False",
+            "nota_teorica": 70.0,
+            "nota_practica": 80.0,
+            "promedio": 75.0,
+            "area": "apolo",
+            "notas": {
+                "Maincra": 98.0
+            }
         }
     },
     "rutas": {
@@ -137,7 +144,11 @@
     "areas": {
         "apolo": {
             "nombre": "Apolo",
-            "capacidad": 33
+            "capacidad": 33,
+            "campers": [
+                "1057410559",
+                "1057410559"
+            ]
         },
         "artemis": {
             "nombre": "Artemis",
@@ -158,5 +169,14 @@
             "area": "Sputnik"
         }
     },
-    "matricula": {}
+    "matricula": {
+        "1057410559_Maincra_20240603113403": {
+            "camper_id": "1057410559",
+            "trainer_id": "15",
+            "ruta_entrenamiento": "Maincra",
+            "fecha_inicio": "2024-04-29",
+            "fecha_fin": "2024-12-31",
+            "area_asignada": "apolo"
+        }
+    }
 }
