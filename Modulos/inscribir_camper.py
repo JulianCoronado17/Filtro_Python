@@ -23,6 +23,8 @@ def addCamper(campers:dict):
         'riesgo':riesgo   
     }
     campers.update({id:camper})
+    print("                   ")
+    print("                   ")
     print("""\033[32mRegistro exitoso!\033[0m""")
 
 def inscribir_camper(ruta_archivo):

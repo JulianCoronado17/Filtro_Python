@@ -18,7 +18,6 @@ from Modulos.act_riesgo_camper import*
 from Modulos.matriculas import*
 from Modulos.reportes import*
 import Modulos.rutas as rutas
-
 import os
 
 campus = {
@@ -138,72 +137,76 @@ campus = {
 
 
 menu_principal="""
-1. Camper
-2. Trainer
-3. Coordinador
-0. Salir
+1-\033[35;1mCamper\033[0m
+2-\033[35;1mTrainer\033[0m
+3-\033[35;1mCoordinador\033[0m
+0-\033[35;1mSalir\033[0m
 """
 menu_camper="""
-1. Incribirse
-2. Ver Información del Camper
-3. Actualizar Información del Camper
-4. Ver Estado del Proceso
-5. Ver Rutas Disponibles
-6. Darse de Baja
+1-\033[31;1mIncribirse\033[0m
+2-\033[31;1mVer Información del Camper\033[0m
+3-\033[31;1mActualizar Información del Camper\033[0m
+4-\033[31;1mVer Estado del Proceso\033[0m
+5-\033[31;1mVer Rutas Disponibles\033[0m
+6-\033[31;1mDarse de Baja\033[0m
 """
 menu_trainer="""
-1. Agregar una nueva ruta de entrenamiento
-2. Asignar campers a una ruta específica
-3. Ver la información detallada de un camper
-4. Actualizar el progreso de un camper en su ruta
-5. Ver el estado del proceso de un camper
-6. Ver información detallada de todos los trainers
+1-\033[36;1mVer la información detallada de un camper\033[0m
+2-\033[36;1mActualizar el progreso de un camper en su ruta\033[0m
+3-\033[36;1mVer el estado del proceso de un camper\033[0m
+4-\033[36;1mAgregar una nueva ruta de entrenamiento\033[0m
+5-\033[36;1mAsignar campers a una ruta específica\033[0m
 """
 
+
 menu_coordinador = """
-1. Registrar nuevo trainer
-2. Asignar área a trainer
-3. Ver información de todos los trainers
-4. Actualizar estado y riesgo de camper
-5. Ver todas las rutas disponibles
-6. Eliminar camper
-7. Registrar nota de camper
-8. Inscribir camper
-9. Crear nueva ruta
-10. Registrar matricula
-11. Ver matriculas
-12. Registrar notas por módulo y evaluar rendimiento
-13. Consultar campers en riesgo alto
-14. Reportes
+1. \033[33;1mRegistrar nuevo trainer\033[0m
+2. \033[33;1mAsignar área a trainer\033[0m
+3. \033[33;1mVer información de todos los trainers\033[0m
+4. \033[33;1mActualizar estado y riesgo de camper\033[0m
+5. \033[33;1mVer todas las rutas disponibles\033[0m
+6. \033[33;1mEliminar camper\033[0m
+7. \033[33;1mRegistrar nota de camper\033[0m
+8. \033[33;1mInscribir camper\033[0m
+9. \033[33;1mCrear nueva ruta\033[0m
+10. \033[33;1mRegistrar matricula\033[0m
+11. \033[33;1mVer matriculas\033[0m
+12. \033[33;1mRegistrar notas por módulo y evaluar rendimiento\033[0m
+13. \033[33;1mConsultar campers en riesgo alto\033[0m
+14. \033[34;4mReportes\033[0m
 """
 menu_reportes = """
-1. Listar campers inscritos
-2. Listar campers aprobados
-3. Listar trainers
-4. Listar campers con bajo rendimiento
-5. Listar campers y trainers por ruta
-6. Reporte de módulos por ruta y trainer
+1-\u001b[38;5;51mListar campers inscritos\u001b[0m
+2-\u001b[38;5;86mListar campers aprobados\u001b[0m
+3-\u001b[38;5;25mListar trainers\u001b[0m
+4-\u001b[38;5;18mListar campers con bajo rendimiento\u001b[0m
+5-\u001b[38;5;165mListar campers y trainers por ruta\u001b[0m
+6-\u001b[38;5;42mReporte de módulos por ruta y trainer\u001b[0m
 """
 
 ruta_carpeta = 'Data'
 ruta_archivo = os.path.join(ruta_carpeta, 'campus.json')
 
-if not os.path.exists(ruta_archivo):
-    campus = {
-        'campers': {},
-        'trainers': {},
-        'areas': {
-            'nodejs': {'capacidad': 33, 'campers': []},
-            'java': {'capacidad': 33, 'campers': []},
-            'netcore': {'capacidad': 33, 'campers': []}
-        },
-        'rutas': ['nodejs', 'java', 'netcore']
-    }
-    with open(ruta_archivo, 'w') as archivo_json:
-        json.dump(campus, archivo_json, indent=4)
+# if not os.path.exists(ruta_archivo):
+#     campus = {
+#         'campers': {},
+#         'trainers': {},
+#         'areas': {
+#             'nodejs': {'capacidad': 33, 'campers': []},
+#             'java': {'capacidad': 33, 'campers': []},
+#             'netcore': {'capacidad': 33, 'campers': []}
+#         },
+#         'rutas': ['nodejs', 'java', 'netcore']
+#     }
+#     with open(ruta_archivo, 'w') as archivo_json:
+#         json.dump(campus, archivo_json, indent=4)
 
 while True:
-    print("""\033[36mBIENVENIDO A CAMPUSLANDS\033[0m""")
+    print("                                    ")
+    print("                                    ")
+    print("                                    ")
+    print("""\033[36;3;1mBIENVENIDO A CAMPUSLANDS\033[0m""")
+    
     print(menu_principal)
     opc=input("Escoja cual es su rol: ")
     if opc == "1":
@@ -225,7 +228,7 @@ while True:
         
         elif opc_camper == "2":
             # Implementar función para ver información del camper
-            rutas.crear_nueva_ruta(ruta_nombre, ruta_archivo)
+            ver_informacion_camper(ruta_archivo)
         elif opc_camper == "3":
             # Implementar función para actualizar información del camper
             actualizar_informacion_camper(ruta_archivo)

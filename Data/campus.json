@@ -2,21 +2,15 @@
     "campers": {
         "1057410559": {
             "id": "1057410559",
-            "nombre": "Julian",
-            "apellido": "Pi\u00f1eros",
-            "direccion": "Carrera19A",
+            "nombre": "Julian ",
+            "apellido": "Coronado",
+            "direccion": "Kr 19A #1NA-20",
             "acudiente": "Madre",
             "celular": "3227095140",
-            "fijo": "0413",
-            "estado": "Aprobado",
-            "riesgo": "False",
-            "nota_teorica": 70.0,
-            "nota_practica": 80.0,
-            "promedio": 75.0,
-            "area": "apolo",
-            "notas": {
-                "Maincra": 98.0
-            }
+            "fijo": "n/a",
+            "estado": "Inscrito",
+            "riesgo": false,
+            "progreso": ""
         }
     },
     "rutas": {
@@ -109,74 +103,25 @@
                 "nodejs": {},
                 "express": {}
             }
-        },
-        "Maincra": {
-            "fundamentos": {
-                "introduccion_algoritmia": {},
-                "pseint": {},
-                "python": {}
-            },
-            "web": {
-                "html": {},
-                "css": {},
-                "bootstrap": {}
-            },
-            "progformal": {
-                "java": {},
-                "javascript": {},
-                "csharp": {}
-            },
-            "baseDatos": {
-                "principal": "Mysql",
-                "alternativo": "MongoDb",
-                "mysql": {},
-                "mongodb": {},
-                "postgresql": {}
-            },
-            "backend": {
-                "netcore": {},
-                "spring_boot": {},
-                "nodejs": {},
-                "express": {}
-            }
         }
     },
     "areas": {
         "apolo": {
             "nombre": "Apolo",
             "capacidad": 33,
-            "campers": [
-                "1057410559",
-                "1057410559"
-            ]
+            "campers": []
         },
         "artemis": {
             "nombre": "Artemis",
-            "capacidad": 35
+            "capacidad": 35,
+            "campers": []
         },
         "sputnik": {
             "nombre": "Sputnik",
-            "capacidad": 33
+            "capacidad": 33,
+            "campers": []
         }
     },
-    "trainers": {
-        "15": {
-            "nombre": "Juan Mari\u00f1o",
-            "especialidad": "Socializar",
-            "horario": [
-                "10-00,13-30"
-            ],
-            "area": "Sputnik"
-        }
-    },
-    "matricula": {
-        "1057410559_Maincra_20240603113403": {
-            "camper_id": "1057410559",
-            "trainer_id": "15",
-            "ruta_entrenamiento": "Maincra",
-            "fecha_inicio": "2024-04-29",
-            "fecha_fin": "2024-12-31",
-            "area_asignada": "apolo"
-        }
-    }
+    "trainers": {},
+    "matricula": {}
 }
