@@ -9,10 +9,10 @@ def ver_info_camper_trainer(ruta_archivo):
             campus = json.load(archivo_json)
         
         if camper_id in campus['campers']:
-            print("Información del Camper:")
+            print("\u001b[38;5;10mInformación del Camper:\u001b[0m")
             for key, value in campus['campers'][camper_id].items():
                 print(f"{key}: {value}")
         else:
-            print("ID de camper no encontrado.")
+            print("\u001b[38;5;196mID de camper no encontrado.\u001b[0m")
     else:
         print("Archivo campus.json no encontrado.")

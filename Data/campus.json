@@ -2,15 +2,21 @@
     "campers": {
         "1057410559": {
             "id": "1057410559",
-            "nombre": "Julian ",
-            "apellido": "Coronado",
-            "direccion": "Kr 19A #1NA-20",
+            "nombre": "Julian",
+            "apellido": "Pi\u00f1eros",
+            "direccion": "Carrera19",
             "acudiente": "Madre",
             "celular": "3227095140",
             "fijo": "n/a",
-            "estado": "Inscrito",
+            "estado": "Aprobado",
             "riesgo": false,
-            "progreso": ""
+            "nota_teorica": 80.0,
+            "nota_practica": 75.0,
+            "promedio": 77.5,
+            "area": "apolo",
+            "notas": {
+                "Java": 90.0
+            }
         }
     },
     "rutas": {
@@ -109,7 +115,9 @@
         "apolo": {
             "nombre": "Apolo",
             "capacidad": 33,
-            "campers": []
+            "campers": [
+                "1057410559"
+            ]
         },
         "artemis": {
             "nombre": "Artemis",

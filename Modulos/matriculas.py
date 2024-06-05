@@ -18,10 +18,10 @@ def registrar_matricula(ruta_archivo):
 
     # Verificar que el camper está aprobado
     if camper_id not in campus['campers']:
-        print("ID de camper no encontrado.")
+        print("\u001b[38;5;196mID de camper no encontrado.\u001b[0m")
         return
     if campus['campers'][camper_id]['estado'] != 'Aprobado':
-        print("El camper no está aprobado.")
+        print("\u001b[38;5;196mEl camper no está aprobado.\u001b[0m")
         return
 
     # Asignar área de entrenamiento
@@ -34,7 +34,7 @@ def registrar_matricula(ruta_archivo):
             break
 
     if not area_asignada:
-        print("No hay áreas disponibles con capacidad suficiente.")
+        print("\u001b[38;5;196mNo hay áreas disponibles con capacidad suficiente.\u001b[0m")
         return
 
     # Asignar la matrícula
@@ -52,9 +52,8 @@ def registrar_matricula(ruta_archivo):
     with open(ruta_archivo, 'w') as archivo_json:
         json.dump(campus, archivo_json, indent=4)
 
-    print(f"Matrícula registrada con éxito. ID de matrícula: {matricula_id}")
+    print(f"\u001b[38;5;10mMatrícula registrada con éxito. ID de matrícula: {matricula_id}\u001b[0m")
 
-# Ahora puedes llamar a la función `registrar_matricula` desde tu menú principal.
 
 
 
@@ -65,13 +64,12 @@ def ver_matriculas(ruta_archivo):
             campus = json.load(archivo_json)
 
         if 'matricula' in campus and campus['matricula']:
-            print("Matrículas registradas:")
+            print("\u001b[38;5;10mMatrículas registradas:\u001b[0m")
             for matricula_id, matricula in campus['matricula'].items():
-                print(f"\nMatrícula ID: {matricula_id}")
+                print(f"\u001b[38;5;10m\nMatrícula ID: {matricula_id}\u001b[0m")
                 for key, value in matricula.items():
-                    print(f"{key}: {value}")
+                    print(f"\u001b[38;5;10m{key}\u001b[0m: \u001b[38;5;10m{value}\u001b[0m")
         else:
-            print("No hay matrículas registradas.")
+            print("\u001b[38;5;196mNo hay matrículas registradas.\u001b[0m")
     else:
         print("Archivo campus.json no encontrado.")
-

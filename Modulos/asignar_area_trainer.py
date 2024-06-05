@@ -13,8 +13,8 @@ def asignar_area_a_trainer(ruta_archivo):
             campus['trainers'][trainer_id]['area'] = nueva_area
             with open(ruta_archivo, 'w') as archivo_json:
                 json.dump(campus, archivo_json, indent=4)
-            print("Área asignada exitosamente.")
+            print("\u001b[38;5;10mÁrea asignada exitosamente.\u001b[0m")
         else:
-            print("ID de trainer no encontrado.")
+            print("\u001b[38;5;196mID de trainer no encontrado.\u001b[0m")
     else:
         print("Archivo campus.json no encontrado.")

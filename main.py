@@ -227,22 +227,17 @@ while True:
                 json.dump(campus, archivo_json, indent=4)           
         
         elif opc_camper == "2":
-            # Implementar función para ver información del camper
             ver_informacion_camper(ruta_archivo)
         elif opc_camper == "3":
-            # Implementar función para actualizar información del camper
             actualizar_informacion_camper(ruta_archivo)
         elif opc_camper == "4":
-            # Implementar función para ver estado del proceso
             ver_estado_proceso(ruta_archivo)
         elif opc_camper == "5":
-            # Implementar función para ver rutas disponibles
             ver_rutas_disponibles(ruta_archivo)
         elif opc_camper == "6":
-            # Implementar función para darse de baja
             darse_de_baja(ruta_archivo)
         else:
-            print("Escoja un opcion existente")
+            print("\u001b[38;5;196mEscoja un opcion existente\u001b[0m")
             
             
     elif opc=="2":
@@ -315,12 +310,12 @@ while True:
             elif opc_reporte == "6":
                 reporte_modulos(ruta_archivo)
             else:
-                print("Escoja una opción existente")
+                print("\u001b[38;5;196mEscoja una opción existente\u001b[0m")
                 
     elif opc=="0":
         print("Salio")
         break                         
     else:
-        print("Escoja un rol existente")
+        print("\u001b[38;5;196mEscoja un rol existente\u001b[0m")
 
-#Arreglar agregar matricula, deje la linea pa chat gpt ya escrita, limite reestablecido para las 6:47 am
+

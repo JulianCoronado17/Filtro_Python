@@ -18,8 +18,8 @@ def actualizar_informacion_camper(ruta_archivo):
 
             with open(ruta_archivo, 'w') as archivo_json:
                 json.dump(campus, archivo_json, indent=4)
-            print("Información actualizada.")
+            print("\u001b[38;5;10mInformación actualizada.\u001b[0m")
         else:
-            print("ID de camper no encontrado.")
+            print("\u001b[38;5;196mID de camper no encontrado.\u001b[0m")
     else:
         print("Archivo campus.json no encontrado.")

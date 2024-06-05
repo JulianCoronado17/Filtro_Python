@@ -25,7 +25,7 @@ def addCamper(campers:dict):
     campers.update({id:camper})
     print("                   ")
     print("                   ")
-    print("""\033[32mRegistro exitoso!\033[0m""")
+    print("""\u001b[38;5;10mRegistro exitoso!\u001b[0m""")
 
 def inscribir_camper(ruta_archivo):
     if not os.path.exists(ruta_archivo):
@@ -48,7 +48,7 @@ def inscribir_camper(ruta_archivo):
     # Asignar área al camper
     area_asignada = None
     for area, info in campus['areas'].items():
-        if len(info.get('campers', [])) < info.get('capacidad', 33):  # Assuming 33 is the default capacity
+        if len(info.get('campers', [])) < info.get('capacidad', 33):  
             area_asignada = area
             break
 
@@ -56,11 +56,11 @@ def inscribir_camper(ruta_archivo):
         if 'campers' not in campus['areas'][area_asignada]:
             campus['areas'][area_asignada]['campers'] = []
         campus['areas'][area_asignada]['campers'].append(camper_id)
-        print(f"Camper {nombre} asignado al área {area_asignada}.")
+        print(f"\u001b[38;5;10mCamper {nombre} asignado al área {area_asignada}.\u001b[0m")
     else:
-        print("No hay áreas disponibles para asignar al nuevo camper.")
+        print("\u001b[38;5;196mNo hay áreas disponibles para asignar al nuevo camper.\u001b[0m")
 
     with open(ruta_archivo, 'w') as archivo_json:
         json.dump(campus, archivo_json, indent=4)
 
-    print(f"Camper {nombre} registrado con éxito.")
+    print(f"""\u001b[38;5;10mCamper {nombre} registrado con éxito.\u001b[0m""")

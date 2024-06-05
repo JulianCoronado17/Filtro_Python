@@ -16,8 +16,8 @@ def actualizar_estado_riesgo_camper(ruta_archivo):
 
             with open(ruta_archivo, 'w') as archivo_json:
                 json.dump(campus, archivo_json, indent=4)
-            print("Estado y riesgo actualizados exitosamente.")
+            print("""\u001b[38;5;10mEstado y riesgo actualizados exitosamente.\u001b[0m""")
         else:
-            print("ID de camper no encontrado.")
+            print("\u001b[38;5;196mID de camper no encontrado.\u001b[0m")
     else:
         print("Archivo campus.json no encontrado.")

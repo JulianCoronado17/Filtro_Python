@@ -10,8 +10,8 @@ def ver_estado_proceso(ruta_archivo):
 
         if camper_id in campus['campers']:
             estado = campus['campers'][camper_id].get('estado', 'Estado no disponible')
-            print(f"Estado actual del proceso: {estado}")
+            print(f"\u001b[38;5;10mEstado actual del proceso\u001b[0m: {estado}")
         else:
-            print("ID de camper no encontrado.")
+            print("\u001b[38;5;196mID de camper no encontrado.\u001b[0m")
     else:
         print("Archivo campus.json no encontrado.")

@@ -18,8 +18,8 @@ def registrar_nueva_ruta(ruta_archivo):
             }
             with open(ruta_archivo, 'w') as archivo_json:
                 json.dump(campus, archivo_json, indent=4)
-            print(f"Nueva ruta '{nueva_ruta}' registrada exitosamente.")
+            print(f"\u001b[38;5;10mNueva ruta '{nueva_ruta}' registrada exitosamente.\u001b[0m")
         else:
-            print("La ruta ya existe.")
+            print("\u001b[38;5;196mLa ruta ya existe.\u001b[0m")
     else:
         print("Archivo campus.json no encontrado.")
